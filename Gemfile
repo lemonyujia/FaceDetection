@@ -69,3 +69,5 @@ group :production do
   # Required by heroku
   gem 'rails_12factor'
 end
+
+gem 'aws-sdk', '~> 2'
