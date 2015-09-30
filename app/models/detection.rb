@@ -9,9 +9,9 @@ class Detection < ActiveRecord::Base
                         thumb: "100x100>" },
                       storage: :s3,
                       s3_credentials: {
-                        :bucket => ENV['facedetection'],
-                        :access_key_id => ENV['AKIAJMQTYKGON3TBKY2Q'],
-                        :secret_access_key => ENV['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']}
+                        :bucket => ENV['S3_BUCKET_NAME'],
+                        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+                        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
 
   else
     has_attached_file :image,
