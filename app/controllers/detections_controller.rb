@@ -4,7 +4,7 @@ class DetectionsController < ApplicationController
 
   def create
     @detection = current_user.detections.build safe_create_params
-    @detection.detect_face
+    # @detection.detect_face
     if @detection.save
        redirect_to @detection
     else
