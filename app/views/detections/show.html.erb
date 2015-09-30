@@ -1,0 +1,36 @@
+<h2>##### Detection Lists #####</h2>
+
+  <div>
+    <img src='<%= @detection.image.url(:medium) %>'>
+    <p>
+      <strong>Gender: </strong>
+      <%= @detection.gender %>
+    </p>
+
+    <p>
+      <strong>Age: </strong>
+      <%= @detection.age %>
+    </p>
+
+    <p>
+      <strong>Race: </strong>
+      <%= @detection.race %>
+    </p>
+
+    <p>
+      <strong>Glass: </strong>
+      <%= @detection.glass %>
+    </p>
+
+    <p>
+      <strong>Smiling: </strong>
+      <%= @detection.smiling %>
+    </p>
+
+    <p>
+      <strong>Race: </strong>
+      <%= @detection.race %>
+    </p>
+</div>
+
+  <%= link_to 'Back', root_path %>

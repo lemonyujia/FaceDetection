@@ -1,0 +1,12 @@
+<h1>Add an image</h1>
+<div class="container">
+  <%= form_for @detection, html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
