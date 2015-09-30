@@ -49,7 +49,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'paperclip', '~> 4.3'
+gem 'paperclip'
 
 gem 'devise'
 
@@ -70,4 +70,4 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk'
