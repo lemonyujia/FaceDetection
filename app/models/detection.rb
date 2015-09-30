@@ -8,7 +8,7 @@ class Detection < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def detect_face
-    query = "https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?attribute=glass%2Cpose%2Cgender%2Cage%2Crace%2Csmiling&url=#{self.image}"
+    query = "https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?attribute=glass%2Cpose%2Cgender%2Cage%2Crace%2Csmiling&url=#{Constants::HOSTNAME + self.image.url}"
     headers = {
       "X-Mashape-Key" => "D6sQ66vv2JmshMPZ7FcpwotH4jhGp1amWTLjsnBnIm7TOVueUY",
       "Accept" => "application/json"
@@ -23,6 +23,7 @@ class Detection < ActiveRecord::Base
       self.glass = result["face"].first["attribute"]["glass"]["value"]
       self.race = result["face"].first["attribute"]["race"]["value"]
       self.smiling = (result["face"].first["attribute"]["smiling"]["value"]).to_s
+      save
     end
   end
 end
