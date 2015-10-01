@@ -53,6 +53,8 @@ gem 'paperclip'
 
 gem 'devise'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+
 ruby "2.2.2"
 
 #...

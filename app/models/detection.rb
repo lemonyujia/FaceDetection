@@ -1,4 +1,5 @@
 class Detection < ActiveRecord::Base
+  belongs_to :user
   after_save :detect_face
   has_attached_file :image, styles: {
                         medium: "300x300>",
