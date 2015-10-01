@@ -3,7 +3,7 @@ class DetectionsController < ApplicationController
   before_action :authenticate_user!, except: [:edit]
 
   def create
-    @detection = current_user.detections.build safe_create_params
+    @detection = current_user.detections.build #safe_create_params
     @detection.detect_face
     if @detection.save
        redirect_to @detection
@@ -27,10 +27,10 @@ class DetectionsController < ApplicationController
     redirect_to detections_path
   end
 
-  private
+  #private
 
-  def safe_create_params
-    params.require(:detection).permit(:image)
-  end
+  #def safe_create_params
+  #  params.require(:detection).permit(:image)
+  #end
 
 end

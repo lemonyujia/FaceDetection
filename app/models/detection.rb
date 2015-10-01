@@ -1,6 +1,6 @@
 class Detection < ActiveRecord::Base
   after_save :detect_face
-    has_attached_file :image, styles: {
+  has_attached_file :image, styles: {
                         medium: "300x300>",
                         square: "200x200",
                         thumb: "100x100>" }
@@ -8,7 +8,7 @@ class Detection < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def detect_face
-    query = "https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?attribute=glass%2Cpose%2Cgender%2Cage%2Crace%2Csmiling&url=#{Constants::HOSTNAME + self.image(:medium)}"
+    query = "https://faceplusplus-faceplusplus.p.mashape.com/detection/detect?attribute=glass%2Cpose%2Cgender%2Cage%2Crace%2Csmiling&url=#{url}" #Constants::HOSTNAME + self.image(:medium)
     headers = {
       "X-Mashape-Key" => "D6sQ66vv2JmshMPZ7FcpwotH4jhGp1amWTLjsnBnIm7TOVueUY",
       "Accept" => "application/json"

@@ -10,3 +10,24 @@
     </div>
   <% end %>
 </div>
+
+<div class="jumbotron">
+  <h1>Enter a image URL</h1>
+
+  <% if @detection.errors.any? %>
+  <ul>
+    <% @detection.errors.full_messages.each do |msg| %>
+          <li style="color: #C0392B;"><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- ###  explicitly tell the form to route it to "create" method  ### -->
+
+<%= form_tag(controller: "detections", action: "create", method: "post") do  %>
+    <%= text_field_tag(:url, nil, :class => 'form-control input-hg flat', :placeholder => 'http://something.png')  %><br>
+    <p></p>
+    <%= submit_tag("Create Detection",  :class => "btn btn-hg btn-block btn-primary")  %>
+<% end %>
+
+</div>
